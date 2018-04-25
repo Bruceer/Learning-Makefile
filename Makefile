@@ -12,16 +12,13 @@ DIR_DEPS = deps
 DIRS = $(DIR_OBJS) $(DIR_EXES) $(DIR_DEPS)
 
 EXE  = compilcated
-EXE  := $(addprefix $(DIR_EXES)/, $(EXE) )
-
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
-OBJS := $(addprefix $(DIR_OBJS)/, $(OBJS))
-
 DEPS = $(SRCS:.c=.dep)
+
+OBJS := $(addprefix $(DIR_OBJS)/, $(OBJS))
+EXE  := $(addprefix $(DIR_EXES)/, $(EXE) )
 DEPS := $(addprefix $(DIR_DEPS)/, $(DEPS))
-
-
 
 all: $(EXE)
 
